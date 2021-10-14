@@ -152,3 +152,52 @@ main {
     }
 }
 
+.quiz_body {
+  background: linear-gradient(122.76deg, #3550dc -35.72%, #27e9f7 172.73%);
+}
+.timer {
+  background: -webkit-linear-gradient(
+    122.76deg,
+    #3550dc -35.72%,
+    #27e9f7 172.73%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.nav_bar a {
+  background: #d4d4d4;
+  border-radius: 100%;
+  margin: 10px 10px;
+  color: white;
+}
+.nav_bar a:active {
+  background: linear-gradient(122.76deg, #3550dc -35.72%, #27e9f7 172.73%);
+}
+.nav_bar li {
+  border-bottom: 4px solid #d4d4d4;
+}
+.nav_bar li + :active {
+  border-bottom: 4px solid;
+  border-color: #3550dc;
+}
+.bg_gay {
+  background: #d4d4d4;
+  margin: 10px 10px;
+  color: white;
+  padding: 8px 16px;
+}
+.selected-round {
+  background: linear-gradient(122.76deg, #3550dc -35.72%, #27e9f7 172.73%);
+}
+.selected-text {
+  background: -webkit-linear-gradient(
+    122.76deg,
+    #3550dc -35.72%,
+    #27e9f7 172.73%
+  );
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
