@@ -1,5 +1,155 @@
 body {
-  font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(249, 252, 255);
+}
+
+* {
+    font-family: "Poppins";
+    box-sizing: border-box;
+}
+
+.icon-img {
+    margin-top: 40px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo-header {
+    margin-top: 60px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main {
+    margin-top: 60px;
+    padding: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    background-color: #fff;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    /* width: fit-content; */
+    width: 40%;
+    height: fit-content;
+    /* padding-bottom: 26%; */
+}
+
+.login-text {
+    color: blue;
+}
+
+.login-info {
+    color: black;
+    font-size: 12px;
+}
+
+.email-phone {
+    color: rgb(53, 52, 52);
+    font-weight: 500;
+    display: flex;
+    justify-content: start;
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+.input-email {
+    /* font-size: 16px;
+    height: 57px; */
+    border: none;
+    background-color: rgb(229, 235, 238);
+    border-radius: 5px;
+    color: #edf2f7;
+    padding: 0.8em 1.4em 0.8em 1.4em;
+    width: 100%;
+    color: #000;
+    font-size: 16px;
+}
+
+.input-pwd {
+    /* font-size: 16px;
+    height: 57px; */
+    border: none;
+    background-color: rgb(229, 235, 238);
+    border-radius: 5px;
+    color: #edf2f7;
+    padding: 0.8em 1.4em 0.8em 1.4em;
+    width: 100%;
+    color: #000;
+    font-size: 16px;
+}
+
+.input-email:focus {
+    outline: none;
+}
+
+.input-pwd:focus {
+    outline: none;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    text-align: right;
+    margin-top: 10px;
+}
+
+.error-pwd {
+    color: red;
+    font-size: 12px;
+    text-align: right;
+    margin-top: 10px;
+}
+
+.invalid {
+    border: 1px solid red;
+}
+
+.login-btn {
+    background-color: blue;
+    color: #fff;
+    padding: 0.8em 1.4em 0.8em 1.4em;
+    border: none;
+    margin-top: 40px;
+    font-weight: 500;
+    border-radius: 4px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.footer-part {
+    margin-top: 60px;
+    cursor: pointer;
+}
+
+.footer-part a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.footer-part a:hover {
+    color: cadetblue;
+}
+
+@media screen and  (max-width: 760px) {
+    main {
+        width: 60%;
+    }
+}
+
+@media screen and  (max-width: 500px) {
+    main {
+        width: 70%;
+    }
 }
 
 .quiz_body {
@@ -46,6 +196,7 @@ body {
     #3550dc -35.72%,
     #27e9f7 172.73%
   );
+
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
