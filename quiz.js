@@ -5,8 +5,6 @@ const quizOptions = document.querySelector('.quiz-options')
 const questionNumbers = document.querySelector('.question-numbers')
 const prevBtn = document.querySelector('.prev-btn')
 const nextBtn = document.querySelector('.next-btn')
-const options = document.querySelectorAll('.option-wrapper')
-const answers = document.querySelectorAll('.answer-wrapper')
 
 let currentQuestion = dataArray[0];
 
@@ -15,7 +13,7 @@ const displayQuestion = () => {
     let displayOption = ''
     // looping through the answer object of data.js
     for(let option in currentQuestion.answers) {
-        displayOption += `<li class="d-flex align-items-center">
+        displayOption += `<li class="d-flex align-items-center" style="cursor: pointer;">
         <p class="option-wrapper text-uppercase bg_gay rounded-circle">${option}</p>
         <p class="answer-wrapper m-2">${currentQuestion.answers[option]}</p>
         </li>`
@@ -48,11 +46,15 @@ const changeToNext = () => {
 }
 
 const selectAnswer = (e) => {
+    const options = document.querySelectorAll('.option-wrapper')
+    const answers = document.querySelectorAll('.answer-wrapper');
     const selectedAnswer = e.target.closest('li')
     options.forEach((option) => {
-        console.log(option)
+        option.classList.remove('selected-round');
     })
-    console.log(options)
+    answers.forEach((answer) => {
+        answer.classList.remove('selected-text');
+    })
     selectedAnswer.children[0].classList.add('selected-round')
     selectedAnswer.children[1].classList.add('selected-text')
 }
