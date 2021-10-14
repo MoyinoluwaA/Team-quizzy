@@ -35,71 +35,53 @@
     </div>
     <div class="card " style="min-height:85vh; border-radius: 40px 40px 0 0;">
         <span class="quiz_body d-flex py-1 px-4 rounded-pill mt-2  mb-3 text-center mx-auto"></span>
-        <ul class="nav justify-content-center nav_bar">
+        <ul class="question-numbers nav justify-content-center nav_bar">
             <li class="nav-item">
-                <a class="nav-link  active" aria-current="page" href="#1">1</a>
+                <a class="nav-link  active" aria-current="page" href="#question-1">1</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="#">2</a>
+                <a class="nav-link " href="#question-2">2</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="#">3</a>
+                <a class="nav-link " href="#question-3">3</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link ">4</a>
+                <a class="nav-link " href="#question-4">4</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link ">5</a>
+                <a class="nav-link " href="#question-5">5</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link ">6</a>
+                <a class="nav-link " href="#question-6">6</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link ">7</a>
+                <a class="nav-link " href="#question-7">7</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link ">8</a>
+                <a class="nav-link " href="#question-8">8</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link ">9</a>
+                <a class="nav-link " href="#question-9">9</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link">10</a>
+                <a class="nav-link" href="#question-10">10</a>
             </li>
         </ul>
         <div class="container mt-5">
             <div class="row justify-content-center">
-                <h2 class="col-lg-7">What is the meaning of UI UX Design ?</h2>
-                <ul class="list-unstyled col-lg-7">
-                    <li class="d-flex align-items-center">
-                        <p class="bg_gay rounded-circle">A</p>
-                        <p class="m-2">User Introface and User Experience</p>
-                    </li>
-                    <li class="d-flex align-items-center">
-                        <p class="bg_gay rounded-circle">B</p>
-                        <p class="m-2">User Introface and User Experience</p>
-                    </li>
-                    <li class="d-flex align-items-center">
-                        <p class="bg_gay rounded-circle">C</p>
-                        <p class="m-2">User Introface and User Experience</p>
-                    </li>
-                    <li class="d-flex align-items-center">
-                        <p class="bg_gay rounded-circle selected-round">D</p>
-                        <p class="m-2 selected-text">User Introface and User Experience</p>
-                    </li>
-                    <li class="d-flex align-items-center">
-                        <p class="bg_gay rounded-circle">E</p>
-                        <p class="m-2">User Introface and User Experience</p>
-                    </li>
-                </ul>
+                <div class="col-lg-7">
+                    <h2 class="quiz-question"></h2>
+                    <ul class="quiz-options list-unstyled">
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="d-flex mt-4 justify-content-between align-items-center">
-            <span class="bg_gay rounded-circle selected-round"><i class="ri-arrow-left-s-line ri-2x"></i></span>
+            <span class="prev-btn bg_gay rounded-circle selected-round"><i class="ri-arrow-left-s-line ri-2x"></i></span>
             <button type="button" class="btn btn-outline-primary p-3">Submit Quiz</button>
-            <span class="bg_gay rounded-circle"><i class="ri-arrow-right-s-line ri-2x"></i></span>
+            <span class="next-btn bg_gay rounded-circle"><i class="ri-arrow-right-s-line ri-2x"></i></span>
         </div>
     </div>
-    <script src='./quiz.js'></script>
+    <script src='./quiz.js' type="module"></script>
 </body>
 </html>
