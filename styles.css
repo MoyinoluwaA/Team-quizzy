@@ -41,7 +41,7 @@ body {
     margin-right: auto;
 }
 
-main {
+.login-main {
     margin-top: 60px;
     padding: 20px;
     margin-right: 20px;
@@ -160,13 +160,13 @@ main {
 }
 
 @media screen and  (max-width: 760px) {
-    main {
+    .login-main {
         width: 60%;
     }
 }
 
 @media screen and  (max-width: 500px) {
-    main {
+    .login-main {
         width: 70%;
     }
 }
