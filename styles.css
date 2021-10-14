@@ -2,8 +2,24 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+.login-wrapper {
+    background-color: aliceblue;
+}
+
 .landing-page {
     background: linear-gradient(122.76deg, #3550dc -35.72%, #27e9f7 172.73%);
+}
+
+.icon-img1 {
+    position: absolute;
+    top: 0;
+    margin-top: -8px;
+}
+
+.icon-img1 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 
 .landing-page-header {
