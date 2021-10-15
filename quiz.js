@@ -12,6 +12,22 @@ let currentQuestion = dataArray[0];
 let currentState = {}
 let currentIndex = dataArray.indexOf(currentQuestion);
 
+const displayPagination = () => {
+    let displayOption = ''
+
+    // looping through the answer object of data.js
+    for(const question of dataArray) {
+        displayOption += `<li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#question-${dataArray.indexOf(question) + 1}">${dataArray.indexOf(question) + 1}</a>
+        </li>`
+    }
+
+    changeHashLocation(0)
+    questionNumbers.innerHTML = displayOption
+}
+
+window.addEventListener('load', displayPagination)
+
 const displayQuestion = () => {
     currentIndex = dataArray.indexOf(currentQuestion);
     quizQuestion.innerHTML = currentQuestion.question
@@ -20,8 +36,8 @@ const displayQuestion = () => {
     // looping through the answer object of data.js
     for(let option in currentQuestion.answers) {
         displayOption += `<li class="d-flex align-items-center" style="cursor: pointer;">
-        <p class="option-wrapper text-uppercase bg_gay rounded-circle ${currentState[currentIndex] == option && 'selected-round'} ">${option}</p>
-        <p class="answer-wrapper m-2 ${currentState[currentIndex] == option && 'selected-text'}">${currentQuestion.answers[option]}</p>
+            <p class="option-wrapper text-uppercase bg_gay rounded-circle ${currentState[currentIndex] == option && 'selected-round'} ">${option}</p>
+            <p class="answer-wrapper m-2 ${currentState[currentIndex] == option && 'selected-text'}">${currentQuestion.answers[option]}</p>
         </li>`
     }
     quizOptions.innerHTML = displayOption
@@ -34,15 +50,15 @@ const changeQuestion = (e) => {
     const a = e.target.closest('a');
     const number = a.innerHTML
 
-    // remove active style on currently active
-    const pagination = document.querySelector('.nav-link.active')
-    pagination.classList.remove('active')
-
-    // add active style to new currently active
-    a.classList.add('active')
-
+    // change from previous question to current question
     currentQuestion = dataArray[number -1]
     displayQuestion()
+}
+
+const changeHashLocation = (currentIndex) => {
+    if (currentIndex >= 0) {
+        location.hash = `question-${currentIndex + 1}`
+    }
 }
 
 const changeToPrev = () => {
@@ -59,11 +75,8 @@ const changeToPrev = () => {
 
     if (currentIndex === 0) return;
 
-    console.log(currentIndex)
-    const pagination = document.querySelector('.nav-link.active')
-    console.log(pagination)
-
-    currentQuestion = dataArray[currentIndex-1]
+    currentQuestion = dataArray[currentIndex - 1]
+    changeHashLocation(currentIndex - 1)
     displayQuestion()
 }
 
@@ -81,6 +94,7 @@ const changeToNext = () => {
         return
     }
     currentQuestion = dataArray[currentIndex + 1]
+    changeHashLocation(currentIndex + 1)
     displayQuestion()
 }
 
@@ -89,6 +103,20 @@ const selectAnswer = (e) => {
     const answers = document.querySelectorAll('.answer-wrapper');
     const selectedAnswer = e.target.closest('li')
     currentState[currentIndex] = selectedAnswer.firstElementChild.textContent
+
+    for (const answer in currentState) {
+        // get li tag
+        const pagination = questionNumbers.children
+
+        // add active style to li tag
+        pagination[answer].classList.add('active')
+
+        // get a tag in li tag
+        const paginationLink = pagination[answer].children[0]
+
+        // add active style to a tag
+        paginationLink.classList.add('active')
+    }
 
     // remove style from previous selected answer
     options.forEach((option) => {
