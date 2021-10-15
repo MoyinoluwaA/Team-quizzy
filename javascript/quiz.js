@@ -92,11 +92,14 @@ const changeToNext = () => {
         prevBtn.classList.add('selected-round')
     }
 
-    // remove style(make btn look disabled) when it has gotten to last question
-    if (currentIndex === dataArray.length - 1) {
+    // remove style (make btn disabled) on click of next in 2nd to the last question
+    if (currentIndex === dataArray.length - 2) {
         nextBtn.classList.remove('selected-round')
-        return
     }
+
+    // do not update question again
+    if (currentIndex === dataArray.length - 1) return
+
     currentQuestion = dataArray[currentIndex + 1]
     changeHashLocation(currentIndex + 1)
     displayQuestion()
@@ -149,7 +152,6 @@ const handleSubmit = () => {
             result.push(dataArray.indexOf(data))
         }
     }
-    console.log(result)
 
     // Hide continue button once it's completed
     continueBtn.style.display = 'none'
