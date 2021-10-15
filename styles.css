@@ -231,9 +231,8 @@ body {
 .nav_bar li {
   border-bottom: 4px solid #d4d4d4;
 }
-.nav_bar li ::after {
-  border-bottom: 4px solid;
-  border-color: #3550dc;
+.nav_bar li.active {
+  border-bottom: 4px solid #3550dc;
 }
 .bg_gay {
   background: #d4d4d4;
