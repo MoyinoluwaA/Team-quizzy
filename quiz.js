@@ -16,7 +16,7 @@ const displayQuestion = () => {
     currentIndex = dataArray.indexOf(currentQuestion);
     quizQuestion.innerHTML = currentQuestion.question
     let displayOption = ''
-    console.log(currentIndex)
+    
     // looping through the answer object of data.js
     for(let option in currentQuestion.answers) {
         displayOption += `<li class="d-flex align-items-center" style="cursor: pointer;">
@@ -31,22 +31,55 @@ displayQuestion()
 
 const changeQuestion = (e) => {
     // closest a-tag to click
-    const number = e.target.closest('a').innerHTML
+    const a = e.target.closest('a');
+    const number = a.innerHTML
+
+    // remove active style on currently active
+    const pagination = document.querySelector('.nav-link.active')
+    pagination.classList.remove('active')
+
+    // add active style to new currently active
+    a.classList.add('active')
+
     currentQuestion = dataArray[number -1]
     displayQuestion()
 }
 
-
 const changeToPrev = () => {
     currentIndex = dataArray.indexOf(currentQuestion)
-    if (currentIndex <= 0) return
+    // add style to nextBtn when a prev btn is clicked
+    if (currentIndex > 0) {
+        nextBtn.classList.add('selected-round')
+    }
+
+    // remove style(make btn look disabled) when its on first question
+    if (currentIndex === 1) {
+        prevBtn.classList.remove('selected-round')
+    }
+
+    if (currentIndex === 0) return;
+
+    console.log(currentIndex)
+    const pagination = document.querySelector('.nav-link.active')
+    console.log(pagination)
+
     currentQuestion = dataArray[currentIndex-1]
     displayQuestion()
 }
 
 const changeToNext = () => {
     currentIndex = dataArray.indexOf(currentQuestion)
-    if (currentIndex === 9) return;
+
+    // add style to prevBtn when next btn is clicked
+    if (currentIndex === 0) {
+        prevBtn.classList.add('selected-round')
+    }
+
+    // remove style(make btn look disabled) when it has gotten to last question
+    if (currentIndex === 9) {
+        nextBtn.classList.remove('selected-round')
+        return
+    }
     currentQuestion = dataArray[currentIndex + 1]
     displayQuestion()
 }
@@ -57,12 +90,15 @@ const selectAnswer = (e) => {
     const selectedAnswer = e.target.closest('li')
     currentState[currentIndex] = selectedAnswer.firstElementChild.textContent
 
+    // remove style from previous selected answer
     options.forEach((option) => {
         option.classList.remove('selected-round');
     })
     answers.forEach((answer) => {
         answer.classList.remove('selected-text');
     })
+
+    // add style for selected answer
     selectedAnswer.children[0].classList.add('selected-round')
     selectedAnswer.children[1].classList.add('selected-text')
 }
