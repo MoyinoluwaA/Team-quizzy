@@ -93,7 +93,7 @@ const changeToNext = () => {
     }
 
     // remove style(make btn look disabled) when it has gotten to last question
-    if (currentIndex === 9) {
+    if (currentIndex === dataArray.length - 1) {
         nextBtn.classList.remove('selected-round')
         return
     }
@@ -115,7 +115,7 @@ const selectAnswer = (e) => {
         // add active style to li tag
         pagination[answer].classList.add('active')
 
-        // get a tag in li tag
+        // get a-tag in li tag
         const paginationLink = pagination[answer].children[0]
 
         // add active style to a tag
