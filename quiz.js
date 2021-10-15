@@ -7,6 +7,7 @@ const prevBtn = document.querySelector('.prev-btn')
 const nextBtn = document.querySelector('.next-btn')
 const submitBtn = document.querySelector('.submit-btn')
 const modaldBtn = document.querySelector('.md-btn')
+const goBack = document.querySelector('.go-back')
 
 let currentQuestion = dataArray[0];
 let currentState = {}
@@ -16,7 +17,7 @@ const displayQuestion = () => {
     currentIndex = dataArray.indexOf(currentQuestion);
     quizQuestion.innerHTML = currentQuestion.question
     let displayOption = ''
-    console.log(currentIndex)
+    // console.log(currentIndex)
     // looping through the answer object of data.js
     for(let option in currentQuestion.answers) {
         displayOption += `<li class="d-flex align-items-center" style="cursor: pointer;">
@@ -32,6 +33,7 @@ displayQuestion()
 const changeQuestion = (e) => {
     // closest a-tag to click
     const number = e.target.closest('a').innerHTML
+    console.log(number)
     currentQuestion = dataArray[number -1]
     displayQuestion()
 }
@@ -77,7 +79,7 @@ const handleSubmit = () => {
     }
     console.log(result)
     modalBody.innerHTML = `
-    <p>You did well.</p>
+    <p>Your result is here, see you perfromance.</p>
     <p>Score: ${result.length}</p>
     <p>Number of Question: ${dataArray.length}</p>
     `
@@ -101,4 +103,10 @@ submitBtn.addEventListener('click', handleSubmit)
 // modal button sends user back home
 modaldBtn.onclick = () => {
     location.href = '/landingPage.html';
+}
+
+// Go back
+goBack.onclick = () => {
+    alert('Do you want to quit')
+    location.href = '/landingPage.html'
 }
