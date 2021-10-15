@@ -7,6 +7,8 @@ const prevBtn = document.querySelector('.prev-btn')
 const nextBtn = document.querySelector('.next-btn')
 const submitBtn = document.querySelector('.submit-btn')
 const modaldBtn = document.querySelector('.md-btn')
+const goBack = document.querySelector('.go-back')
+const continueBtn = document.querySelector('.continue-btn')
 
 let currentQuestion = dataArray[0];
 let currentState = {}
@@ -133,6 +135,12 @@ const selectAnswer = (e) => {
 
 const handleSubmit = () => {
     const modalBody = document.querySelector('.modal-body')
+    let questionLength = dataArray.length
+    let answerLength = Object.keys(currentState).length;
+    if (questionLength !== answerLength ) {
+        modalBody.innerHTML = `You have ${questionLength - answerLength} questions left`
+        return
+    }
     let result = []
     for(let data of dataArray){
         if(data.correctAnswer == currentState[dataArray.indexOf(data)]){
@@ -140,12 +148,17 @@ const handleSubmit = () => {
         }
     }
     console.log(result)
+
+    // Hide continue button once it's completed
+    continueBtn.style.display = 'none'
+
     modalBody.innerHTML = `
-    <p>You did well.</p>
+    <p>Your result is here, see you perfromance.</p>
     <p>Score: ${result.length}</p>
     <p>Number of Question: ${dataArray.length}</p>
     `
 }
+
 
 // to prev question
 prevBtn.addEventListener('click', changeToPrev)
@@ -165,4 +178,10 @@ submitBtn.addEventListener('click', handleSubmit)
 // modal button sends user back home
 modaldBtn.onclick = () => {
     location.href = '/landingPage.html';
+}
+
+// Go back
+goBack.onclick = () => {
+    alert('Do you want to quit')
+    location.href = '/landingPage.html'
 }
