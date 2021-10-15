@@ -54,11 +54,8 @@ passwordInput.onfocus = function() {
 }
 
 // Login Button
-
 loginBtn.addEventListener('click', (e)=> {
     e.preventDefault();
-
-    // if (emailInput.value || passwordInput.value =)
 
     // the api to post to
     const url = "https://reqres.in/api/login";
@@ -76,23 +73,17 @@ loginBtn.addEventListener('click', (e)=> {
     })
     .then(response => response.json())
     .then(result =>{
-        console.log(result)
-
-        console.log(emailInput.value)
-        console.log(passwordInput.value)
-
+       
         if (result.error) {
+            loginFail.textContent = result.error
             return validateForm()
         }
 
         emailInput.value = ''
         passwordInput.value = ''
 
-        //console.log(result)
-
-
         // store to local storage
-        //localStorage.setItem('Quizzy Login Token', JSON.stringify(result.token))
+        localStorage.setItem('Quizzy Login Token', JSON.stringify(result.token))
         
         location.href = '/landingPage.html'
         loginSuccess.textContent = "Login Successfully"
@@ -100,72 +91,3 @@ loginBtn.addEventListener('click', (e)=> {
     } ).catch((e) => console.log(e))
 
 })
-
-
-// Set login btn onclick
-// loginBtn.addEventListener('click', (e)=> {
-//     e.preventDefault();
-   
-//     // the api to post to
-//     const url = "https://reqres.in/api/login";
-
-//     fetch(url,{
-//         method : "POST",
-//         headers : {
-//             Accept:"application/json,text/plain",
-//             "Content-Type":"application/json",
-//         },
-//         body : JSON.stringify({
-//             email: emailInput.value,
-//             password: passwordInput.value
-//         })
-//     })
-//     .then(response => response.json())
-//     .then(result =>{
-//         console.log()
-//         if(result.error){
-//             return loginFail.textContent = result.error
-//         }
-//         loginSuccess.textContent = "login successfully"
-//         location.href = '/landingPage.html'
-//     } ).catch((e) => console.log(e))
-
-// })
-
-// // Confirm email
-// emailInput.onblur = function() {
-//     let email = emailInput.value
-//     if (email.includes('@') === false) {
-//         errorEmail.textContent = 'Not a valid email!'
-//         emailInput.classList.add('invalid');
-//     } else if (email.includes('reqres.in') === false) {
-//         errorEmail.textContent = 'Please include reqres.in'
-//         emailInput.classList.add('invalid')
-//     }
-// }
-
-// emailInput.onfocus = function() {
-//     if (this.classList.contains('invalid')) {
-//         emailInput.classList.remove('invalid')
-//         errorEmail.textContent = ''
-//     }
-// }
-
-// // Confirm password
-// passwordInput.onblur = function() {
-//     let pwd = passwordInput.value
-//     if (pwd === '') {
-//         errorPassword.textContent = 'Input a valid password'
-//         passwordInput.classList.add('invalid')
-//     } else if (pwd.length < 6) {
-//         errorPassword.textContent = 'Password must be greater than 6 characters'
-//         passwordInput.classList.add('invalid')
-//     }
-// }
-
-// passwordInput.onfocus = function() {
-//     if (this.classList.contains('invalid')) {
-//         passwordInput.classList.remove('invalid')
-//         errorPassword.textContent = ''
-//     }
-// }
