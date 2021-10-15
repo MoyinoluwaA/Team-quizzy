@@ -118,7 +118,7 @@ const selectAnswer = (e) => {
         // add active style to li tag
         pagination[answer].classList.add('active')
 
-        // get a tag in li tag
+        // get a-tag in li tag
         const paginationLink = pagination[answer].children[0]
 
         // add active style to a tag
