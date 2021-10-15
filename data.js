@@ -1,6 +1,6 @@
 export const dataArray = [
     {
-        question: 'What is HTML', 
+        question: 'What is HTML ?', 
         answers: {
             a: 'HyperText Markup Language',
             b: 'HyperText Makeup Link',

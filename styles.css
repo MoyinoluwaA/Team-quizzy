@@ -224,15 +224,15 @@ body {
   margin: 10px 10px;
   color: white;
 }
-.nav_bar a:active {
+.nav_bar a.active {
   background: linear-gradient(122.76deg, #3550dc -35.72%, #27e9f7 172.73%);
+  color: #FFF;
 }
 .nav_bar li {
   border-bottom: 4px solid #d4d4d4;
 }
-.nav_bar li + :active {
-  border-bottom: 4px solid;
-  border-color: #3550dc;
+.nav_bar li.active {
+  border-bottom: 4px solid #3550dc;
 }
 .bg_gay {
   background: #d4d4d4;
