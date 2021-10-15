@@ -1,4 +1,6 @@
 import { dataArray } from "./data.js";
+import { auth } from "./util.js"
+auth()
 
 const quizQuestion = document.querySelector('.quiz-question')
 const quizOptions = document.querySelector('.quiz-options')
@@ -158,7 +160,6 @@ const handleSubmit = () => {
     <p>Number of Question: ${dataArray.length}</p>
     `
 }
-
 
 // to prev question
 prevBtn.addEventListener('click', changeToPrev)

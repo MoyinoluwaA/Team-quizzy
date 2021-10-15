@@ -6,6 +6,15 @@ body {
     background-color: aliceblue;
 }
 
+.quizzy-name {
+    font-size: 62px;
+    font-weight: bold;
+}
+
+.greeting-text {
+    font-size: 20px;
+}
+
 .landing-page {
     background: linear-gradient(122.76deg, #3550dc -35.72%, #27e9f7 172.73%);
 }
@@ -49,6 +58,10 @@ body {
     background: linear-gradient(122.76deg, #3550dc -35.72%, #27e9f7 172.73%);
     color: #FFF;
     background-color: rgb(249, 252, 255);
+}
+
+.go-back {
+    display: flex;
 }
 
 .icon-img {
@@ -193,10 +206,21 @@ body {
     color: cadetblue;
 }
 
+.change-question-btn {
+    width: 75%;
+    margin: auto;
+}
+
 @media screen and  (max-width: 760px) {
     .login-main {
         width: 60%;
     }
+
+    .change-question-btn {
+        width: 100%;
+        margin: 0 9px;
+    }
+
 }
 
 @media screen and  (max-width: 500px) {
@@ -221,7 +245,7 @@ body {
 .nav_bar a {
   background: #d4d4d4;
   border-radius: 100%;
-  margin: 10px 10px;
+  margin: 10px 10px 20px;
   color: white;
 }
 .nav_bar a.active {
